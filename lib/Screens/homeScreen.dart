@@ -52,7 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(fontSize: 14)),
                           style: appButtonStyle,
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {}
+                            if (_formKey.currentState!.validate()) {
+                              saveText();
+                            }
                           }),
                     ],
                   ),
@@ -61,5 +63,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           )),
     );
+  }
+
+  saveText() async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('UserData/$userUID/data')
+          .doc()
+          .set({
+        'text': text.text,
+      });
+    } on FirebaseException catch (e) {
+      print('Error Storing Data to Firebase');
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message.toString())));
+    }
   }
 }
