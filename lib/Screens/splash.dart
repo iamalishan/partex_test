@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:partex_test/Screens/homeScreen.dart';
 
 import '../auth/signIn.dart';
 
@@ -37,7 +38,7 @@ class SplashScreen extends StatelessWidget {
       if (uid != null) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const SigIn()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       } else {
         Navigator.pushReplacement(
