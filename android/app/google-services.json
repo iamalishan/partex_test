@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "116553105163",
+    "project_id": "partextest-53b48",
+    "storage_bucket": "partextest-53b48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116553105163:android:276d4afbb73e17b2972c0e",
+        "android_client_info": {
+          "package_name": "com.example.partex_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116553105163-mkcl2522i6p68s4ujjh3tk0v6dujqv00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4Pomxn1jq73evaSnw8Iin3Kq5LYkc7mY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116553105163-mkcl2522i6p68s4ujjh3tk0v6dujqv00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
