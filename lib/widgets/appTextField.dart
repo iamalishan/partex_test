@@ -5,8 +5,10 @@ import '../helper/constant.dart';
 class AppTextField extends StatelessWidget {
   final FormFieldValidator validator;
   final String hint;
+  final Icon? icon;
   final TextEditingController controller;
-  const AppTextField(this.hint, this.controller, this.validator, {Key? key})
+  const AppTextField(this.hint, this.icon, this.controller, this.validator,
+      {Key? key})
       : super(key: key);
 
   @override
@@ -19,7 +21,7 @@ class AppTextField extends StatelessWidget {
           filled: true,
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           hintText: hint,
-          prefixIcon: const Icon(Icons.email_outlined),
+          prefixIcon: icon,
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
               borderSide: BorderSide(color: primaryColor)),

@@ -36,11 +36,13 @@ class SplashScreen extends StatelessWidget {
   splashToOther(context) {
     Future.delayed(const Duration(seconds: 2), () async {
       if (uid != null) {
+        //if user is loggen in
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) =>  HomeScreen()),
         );
       } else {
+        //if user is not logged in
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const SigIn()),

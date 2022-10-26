@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:partex_test/Screens/homeScreen.dart';
 import 'package:partex_test/auth/signUp.dart';
 import 'package:partex_test/helper/constant.dart';
 
@@ -35,13 +36,16 @@ class _SigInState extends State<SigIn> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      AppTextField('Email', emailController, (value) {
+                      AppTextField('Email', Icon(Icons.email), emailController,
+                          (value) {
                         if (!value.toString().contains('@')) {
                           return 'Enter Valid Email';
                         }
                       }),
                       const SizedBox(height: 20),
-                      AppTextField('Password', passwordController, (value) {
+                      AppTextField(
+                          'Password', Icon(Icons.password), passwordController,
+                          (value) {
                         if (value.toString().isEmpty) {
                           return 'Enter Valid Password';
                         }
@@ -83,10 +87,10 @@ class _SigInState extends State<SigIn> {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: emailController.text, password: passwordController.text)
-          .then((value) {
+          .whenComplete(() {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const SigIn()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       });
     } on FirebaseAuthException catch (e) {

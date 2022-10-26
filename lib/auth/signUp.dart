@@ -35,14 +35,17 @@ class _SigUpState extends State<SigUp> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      AppTextField('Email', emailController, (value) {
+                      AppTextField('Email', Icon(Icons.email), emailController,
+                          (value) {
                         if (!value.toString().contains('@')) {
                           return 'Enter Valid Email';
                         }
                         return null;
                       }),
                       const SizedBox(height: 20),
-                      AppTextField('Password', passwordController, (value) {
+                      AppTextField(
+                          'Password', Icon(Icons.password), passwordController,
+                          (value) {
                         if (value.toString().isEmpty) {
                           return 'Enter Valid Password';
                         }
@@ -84,7 +87,7 @@ class _SigUpState extends State<SigUp> {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text)
-          .then((value) {
+          .whenComplete(() {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const SigIn()),
